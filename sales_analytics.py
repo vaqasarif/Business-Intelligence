@@ -463,12 +463,12 @@ fig5 = px.scatter(
     hover_data=["Rep", "Region"],
 )
 fig5.update_traces(marker=dict(line=dict(width=0.5, color="#FFFFFF")))
-    _l5 = {**CHART_LAYOUT, "height": 320}
-    _l5["xaxis"] = dict(tickformat=".0%", gridcolor="#F0F4F8",
-                        title=dict(text="Discount Rate", font=dict(color="#718096", size=12)))
-    _l5["yaxis"] = dict(tickprefix="$", gridcolor="#F0F4F8",
-                        title=dict(text="Revenue", font=dict(color="#718096", size=12)))
-    fig5.update_layout(**_l5)
+_l5 = {**CHART_LAYOUT, "height": 320}
+_l5["xaxis"] = dict(tickformat=".0%", gridcolor="#F0F4F8",
+                    title=dict(text="Discount Rate", font=dict(color="#718096", size=12)))
+_l5["yaxis"] = dict(tickprefix="$", gridcolor="#F0F4F8",
+                    title=dict(text="Revenue", font=dict(color="#718096", size=12)))
+fig5.update_layout(**_l5)
 st.plotly_chart(fig5, use_container_width=True)
 
 # ── Data Table ────────────────────────────────────────────────────────────────
