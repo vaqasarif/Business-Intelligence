@@ -426,8 +426,9 @@ with col3:
     fig3.update_traces(marker_line_width=0,
                        textfont=dict(color="#4A5568", size=11),
                        textposition="outside")
-    fig3.update_layout(**CHART_LAYOUT, height=290, showlegend=False,
-                       xaxis=dict(visible=False))
+    _l3 = {**CHART_LAYOUT, "height": 290, "showlegend": False}
+    _l3["xaxis"] = dict(visible=False)
+    fig3.update_layout(**_l3)
     st.plotly_chart(fig3, use_container_width=True)
 
 with col4:
@@ -445,12 +446,11 @@ with col4:
     fig4.update_traces(marker_line_width=0,
                        textfont=dict(color="#4A5568", size=11),
                        textposition="outside")
-    fig4.update_layout(
-        **CHART_LAYOUT, height=290, coloraxis_showscale=False,
-        xaxis=dict(visible=False),
-        yaxis=dict(gridcolor="rgba(0,0,0,0)", linecolor="rgba(0,0,0,0)",
-                   tickfont=dict(color="#2D3748", size=11)),
-    )
+    _l4 = {**CHART_LAYOUT, "height": 290, "coloraxis_showscale": False}
+    _l4["xaxis"] = dict(visible=False)
+    _l4["yaxis"] = dict(gridcolor="rgba(0,0,0,0)", linecolor="rgba(0,0,0,0)",
+                        tickfont=dict(color="#2D3748", size=11))
+    fig4.update_layout(**_l4)
     st.plotly_chart(fig4, use_container_width=True)
 
 # ── Scatter ───────────────────────────────────────────────────────────────────
@@ -463,13 +463,12 @@ fig5 = px.scatter(
     hover_data=["Rep", "Region"],
 )
 fig5.update_traces(marker=dict(line=dict(width=0.5, color="#FFFFFF")))
-fig5.update_layout(
-    **CHART_LAYOUT, height=320,
-    xaxis=dict(tickformat=".0%", gridcolor="#F0F4F8",
-               title=dict(text="Discount Rate", font=dict(color="#718096", size=12))),
-    yaxis=dict(tickprefix="$", gridcolor="#F0F4F8",
-               title=dict(text="Revenue", font=dict(color="#718096", size=12))),
-)
+    _l5 = {**CHART_LAYOUT, "height": 320}
+    _l5["xaxis"] = dict(tickformat=".0%", gridcolor="#F0F4F8",
+                        title=dict(text="Discount Rate", font=dict(color="#718096", size=12)))
+    _l5["yaxis"] = dict(tickprefix="$", gridcolor="#F0F4F8",
+                        title=dict(text="Revenue", font=dict(color="#718096", size=12)))
+    fig5.update_layout(**_l5)
 st.plotly_chart(fig5, use_container_width=True)
 
 # ── Data Table ────────────────────────────────────────────────────────────────
